@@ -13,253 +13,144 @@
       crossorigin="anonymous"
     />
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <link rel="stylesheet" href="style.css" />
   </head>
-  <style>
-    body {
-      margin: 100px;
-    }
-    form {
-      display: block;
-      margin: 0 auto;
-      align-items: center;
-      width: 600px;
-      margin-top: 100px;
-      margin-bottom: 30px;
-    }
-    h1 {
-      text-align: center;
-      margin-bottom: 40px;
-      text-transform: capitalize;
-    }
 
-    section {
-      position: relative;
-      left: 30%;
-    }
-    img {
-      width: 250px;
-      display: block;
-      margin: 0 auto;
-    }
-    .temperature {
-      font-size: 80pt;
-    }
-    .units {
-      font-size: 12pt;
-    }
-    .col-3 {
-      width: fit-content;
-    }
-    .next-days {
-      margin-top: 40px;
-      align-items: inherit;
-    }
-    .gitHubLink {
-      text-align: center;
-    }
-  </style>
   <body>
-    <form id="search-form">
+    <div
+      class="btn-group unitsBtn"
+      role="group"
+      aria-label="Basic radio toggle button group"
+    >
       <input
-        class="form-control form-control-lg"
-        type="search"
-        placeholder="Search City + Enter"
-        id="city-search"
+        type="radio"
+        class="btn-check"
+        name="btnradio"
+        id="btnradio1"
+        autocomplete="off"
+        checked
       />
-    </form>
+      <label class="btn btn-outline-primary" for="btnradio1" id="celsius"
+        >˚C</label
+      >
+
+      <input
+        type="radio"
+        class="btn-check"
+        name="btnradio"
+        id="btnradio2"
+        autocomplete="off"
+      />
+      <label class="btn btn-outline-primary" id="fahrenheit" for="btnradio2"
+        >˚F</label
+      >
+    </div>
+
+    <div class="container search-container">
+      <form class="search" id="search-form">
+        <input
+          class="form-control form-control-lg"
+          type="search"
+          placeholder="Search City + Enter"
+          id="city-search"
+        />
+      </form>
+    </div>
 
     <h1 id="city"></h1>
-    <div class="conteiner">
-      <div class="row justify-content-center">
-        <div class="col-3">
-          <div>
-            <span class="temperature" id="current-temperature"></span>
-            <span class="units">
-              <a href="#" id="celsius-link">˚C</a> |
-              <a href="#" id="fahrenheit-link">˚F </a></span
-            >
-          </div>
-          <div id="full-date"></div>
-          <div id="current-day"></div>
-          <div id="current-time"></div>
-          <div id="max-min-temp">
-            <em> </em>
-          </div>
-          <br />
-          <div class="description" id="temperature-description"></div>
+
+    <div class="card mb-3 current-temp-card">
+      <div class="row g-0">
+        <div class="col-md-4">
+          <img
+            src="images/sunny.png"
+            class="img-fluid rounded-start temp-image"
+            alt="sun"
+          />
         </div>
-        <div class="col-3">
-          <img src="images/sunny.png" alt="sunny" />
+        <div class="col-md-8">
+          <div class="card-body today">
+            <span
+              class="card-title temperature"
+              id="current-temperature"
+            ></span>
+
+            <h5 id="current-day"></h5>
+            <div id="full-date"></div>
+            <div class="description" id="temperature-description"></div>
+            <br />
+            <div id="max-min-temp"></div>
+            <div id="humidity"></div>
+            <div id="wind-speed"></div>
+          </div>
         </div>
       </div>
-      <br />
-      <br />
-      <div class="row">
-        <div class="col-sm-2">
-          <div class="card">
-            <div class="card-body">
-              <h5 class="card-title">Sun 🌧</h5>
-              <p class="card-text"><strong> 19˚</strong>/ 14˚C</p>
+    </div>
+
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="row">
+          <div class="col-sm-2">
+            <div class="card next-days-card">
+              <div class="card-body">
+                <div class="emojis">❄️</div>
+                <h6 class="card-title next-days">Sun</h6>
+                <small class="card-text"><strong> 19</strong>/ 14˚C</small>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="col-sm-2">
-          <div class="card">
-            <div class="card-body">
-              <h5 class="card-title">Mon 🌦</h5>
-              <p class="card-text"><strong> 12˚</strong>/ 8˚C</p>
+          <div class="col-sm-2">
+            <div class="card next-days-card">
+              <div class="card-body">
+                <div class="emojis">❄️</div>
+                <h6 class="card-title next-days">Mon</h6>
+                <small class="card-text"><strong> 12</strong>/ 8˚C</small>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="col-sm-2">
-          <div class="card">
-            <div class="card-body">
-              <h5 class="card-title">Tue 🌩</h5>
-              <p class="card-text"><strong> 10˚</strong>/ 2˚C</p>
+          <div class="col-sm-2">
+            <div class="card next-days-card">
+              <div class="card-body">
+                <div class="emojis">❄️</div>
+                <h6 class="card-title next-days">Tue</h6>
+                <small class="card-text"><strong> 10</strong>/ 2˚C</small>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="col-sm-2">
-          <div class="card">
-            <div class="card-body">
-              <h5 class="card-title">Wed ☀️</h5>
-              <p class="card-text"><strong> 15˚</strong>/ 9˚C</p>
+          <div class="col-sm-2">
+            <div class="card next-days-card">
+              <div class="card-body">
+                <div class="emojis">❄️</div>
+                <h6 class="card-title next-days">Wed</h6>
+                <small class="card-text"><strong> 15</strong>/ 9˚C</small>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="col-sm-2">
-          <div class="card">
-            <div class="card-body">
-              <h5 class="card-title">Thur 🌨</h5>
-              <p class="card-text"><strong> 4˚</strong>/ -2˚C</p>
+          <div class="col-sm-2">
+            <div class="card next-days-card">
+              <div class="card-body">
+                <div class="emojis">❄️</div>
+                <h6 class="card-title next-days">Thur</h6>
+                <small class="card-text"><strong> 4</strong>/ -2˚C</small>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="col-sm-2">
-          <div class="card">
-            <div class="card-body">
-              <h5 class="card-title">Fri ❄️</h5>
-              <p class="card-text"><strong> 0˚</strong>/ -2˚C</p>
+          <div class="col-sm-2">
+            <div class="card next-days-card">
+              <div class="card-body">
+                <div class="emojis">❄️</div>
+                <h6 class="card-title next-days">Fri</h6>
+                <small class="card-text"><strong> 0</strong>/ -2˚C</small>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
     <div class="gitHubLink">
-      <a href="https://github.com/LuciaEH/weather-app">Open-source code</a> by
+      <a href="https://github.com/LuciaEH/weather-app">Open source Code</a> by
       Lucia Esquivel
     </div>
-    <script>
-      //Current time
-
-      function fullDate(date) {
-        let months = [
-          "Jan. ",
-          "Feb. ",
-          "Mar. ",
-          "Apr. ",
-          "May. ",
-          "Jun. ",
-          "Jul. ",
-          "Aug. ",
-          "Sep. ",
-          "Oct. ",
-          "Nov. ",
-          "Dec. ",
-        ];
-        let month = months[now.getMonth()];
-        let dateNumber = now.getDate();
-        let year = now.getFullYear();
-
-        return `${month}${dateNumber}, ${year}`;
-      }
-
-      let currentDate = document.querySelector("#full-date");
-      let now = new Date();
-      currentDate.innerHTML = fullDate(now);
-
-      let days = [
-        "Sunday",
-        "Monday",
-        "Tuesday",
-        "Wednesday",
-        "Thursday",
-        "Friday",
-        "Saturday",
-      ];
-      let day = days[now.getDay()];
-
-      let actualDay = document.querySelector("#current-day");
-      actualDay.innerHTML = `${day}`;
-
-      function currentTime() {
-        let hour = now.getHours();
-        if (hour < 10) {
-          hour = `0${hour}`;
-        }
-
-        let minute = now.getMinutes();
-        if (minute < 10) {
-          minute = `0${minute}`;
-        }
-        return `${hour}:${minute}`;
-      }
-
-      let actualTime = document.querySelector("#current-time");
-      actualTime.innerHTML = currentTime(now);
-
-      //City Searched
-      function displayWeatherCondition(response) {
-        console.log(response.data);
-        document.querySelector("#city").innerHTML = response.data.name;
-        document.querySelector("#current-temperature").innerHTML = Math.round(
-          response.data.main.temp
-        );
-        document.querySelector("#max-min-temp").innerHTML = `${Math.round(
-          response.data.main.temp_max
-        )}˚C / ${Math.round(response.data.main.temp_min)}˚C`;
-
-        document.querySelector("#temperature-description").innerHTML =
-          response.data.weather[0].description;
-      }
-      function search(city) {
-        let units = "metric";
-        let apiKey = "38a2b3d9c6d31d5f2f9306c4ecae6d68";
-        let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${units}`;
-        console.log(apiUrl);
-        axios.get(apiUrl).then(displayWeatherCondition);
-      }
-
-      function handleSubmit(event) {
-        event.preventDefault();
-        let city = document.querySelector("#city-search").value;
-        search(city);
-      }
-
-      let searchForm = document.querySelector("#search-form");
-      searchForm.addEventListener("submit", handleSubmit);
-
-      search("vancouver");
-      //Convert temperature units
-      function convertToFahrenheit() {
-        event.preventDefault();
-        let temperatureElement = document.querySelector("#current-temperature");
-        let temperature = temperatureElement.innerHTML;
-        temperature = number(temperature);
-        temperatureElement.innerHTML = Math.round(temperature * 9) / 5 + 32;
-      }
-
-      let fahrenheithLink = document.querySelector("#fahrenheit-link");
-      fahrenheithLink.addEventListener("click", convertToFahrenheit);
-
-      function convertToCelsius() {
-        event.preventDefault();
-        let temperatureElement = document.querySelector("#current-temperature");
-        temperatureElement.innerHTML = 21;
-      }
-
-      let celsiusLink = document.querySelector("#celsius-link");
-      celsiusLink.addEventListener("click", convertToCelsius);
-    </script>
+    <script src="script.js"></script>
   </body>
 </html>

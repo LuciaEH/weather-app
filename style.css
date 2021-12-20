@@ -1,0 +1,71 @@
+h1 {
+  font-size: 40pt;
+  margin-top: 60px;
+  margin-bottom: 0;
+  text-transform: capitalize;
+  text-align: center;
+}
+.container {
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.search {
+  margin-top: 80px;
+  position: relative;
+  width: 540px;
+}
+.unitsBtn {
+  position: relative;
+  margin-top: 10pt;
+  margin-left: 80%;
+}
+.current-temp-card {
+  display: flex;
+  margin: 0 auto;
+  width: 540px;
+  padding-left: 30px;
+  border: none;
+}
+.g-0 {
+  width: 600pt;
+  align-items: center;
+  padding-left: 30pt;
+}
+.temp-image {
+  width: 200px;
+  align-self: center;
+}
+.today {
+  margin-left: 50pt;
+}
+.temperature {
+  font-size: 60pt;
+}
+.description {
+  font-style: italic;
+}
+.row {
+  width: 600px;
+}
+.col-sm-2 {
+  width: fit-content;
+  padding: 2pt;
+  border-color: none;
+}
+.next-days-card {
+  border-color: white;
+}
+.emojis {
+  text-align: center;
+}
+.next-days {
+  text-align: center;
+  margin: 0;
+}
+.gitHubLink {
+  text-align: center;
+  font-size: 10pt;
+}
