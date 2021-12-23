@@ -38,6 +38,27 @@ let day = days[now.getDay()];
 let actualDay = document.querySelector("#current-day");
 actualDay.innerHTML = `${day}`;
 
+function displayForecast() {
+  let forecastElement = document.querySelector("#forecast");
+
+  let forecastHTML = `<div class="row">`;
+  let days = ["Fri", "Sat", "Sun"];
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `<div class="col-2">
+  <img src="images/sunny.png" alt="sunny" width="42px"/>
+  <div class="forecast-date">${day}</div>
+  <div class="forecast-temp">
+  <span class="forecast-temp-max">18</span>
+  <span class="forecast-temp-min">12</span>
+  </div>
+  </div>`;
+    forecastHTML = `</div>`;
+    forecastElement.innerHTML = forecastHTML;
+  });
+}
+
 function displayWeatherCondition(response) {
   console.log(response.data);
   document.querySelector("#city").innerHTML = response.data.name;
@@ -60,6 +81,7 @@ function displayWeatherCondition(response) {
   celsiusTemperature = response.data.main.temp;
   minTemp = response.data.main.temp_min;
   maxTemp = response.data.main.temp_max;
+  displayForecast();
 }
 function search(city) {
   let units = "metric";
