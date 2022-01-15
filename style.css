@@ -1,17 +1,13 @@
 body {
-  background-color: #e3f6f5;
   color: #272343;
 }
 .full-container {
-  border: 1px solid #bae8e8;
   border-radius: 20px;
   padding: 20px;
   margin: 0 auto;
   margin-top: 30px;
-  width: 800px;
+  width: 600px;
   display: block;
-  background-color: #ffffff;
-  box-shadow: 6px 6px #bae8e8;
 }
 .unitsBtn{
   margin-right: 100px;
