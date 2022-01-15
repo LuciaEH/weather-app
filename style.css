@@ -26,7 +26,7 @@ h1 {
   display: flex;
   margin: 0 auto;
   width: 540px;
-  padding-left: 30px;
+  padding-left: 0;
   border: none;
 }
 .g-0 {
@@ -68,4 +68,17 @@ h1 {
 .gitHubLink {
   text-align: center;
   font-size: 10pt;
+}
+
+.weather-forecast {
+  display: grid;
+  text-align: center;
+}
+.forecast-icons {
+  text-align: center;
+  margin: 0 auto;
+  display: block;
+}
+.forecast-temp {
+  text-align: center;
 }

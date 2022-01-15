@@ -40,7 +40,7 @@ actualDay.innerHTML = `${day}`;
 
 function formatDay(timestamp) {
   let date = new Date(timestamp * 1000);
-  let day = date.getDate();
+  let day = date.getDay();
   let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 
   return days[day];
@@ -52,30 +52,29 @@ function displayForecast(response) {
 
   let forecastHTML = `<div class="row">`;
   forecast.forEach(function (forecastDay, index) {
-    if (index < 6) {
+    if (index < 5) {
       forecastHTML =
         forecastHTML +
         `
-    <div class="col-2">
+    <div class="col-2 forecast-col">
       <div class="forecast-date">${formatDay(forecastDay.dt)}</div>
     
-      <img src=http://openweathermap.org/ing/wn/${
+      <img src="http://openweathermap.org/img/wn/${
         forecastDay.weather[0].icon
-      }@2x.png alt="" width=""42/>
+      }@2x.png" class="forecast-icons" alt="" width=""42/>
       <div class="forecast-temp">
       <span class="forecast-temp-max">${Math.round(
         forecastDay.temp.max
-      )}˚</span>
+      )}˚ / </span>
       <span class="forecast-temp-min">${Math.round(
         forecastDay.temp.min
       )}˚</span>
       </div>
       </div>`;
-      forecastHTML = forecastHTML + `</div>`;
-
-      forecastElement.innerHTML = forecastHTML;
     }
   });
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
 }
 
 function getCoordinates(coordinates) {
@@ -105,11 +104,10 @@ function displayWeatherCondition(response) {
   document.querySelector(
     "#humidity"
   ).innerHTML = `Humidity: ${response.data.main.humidity}%`;
-
   celsiusTemperature = response.data.main.temp;
   minTemp = response.data.main.temp_min;
   maxTemp = response.data.main.temp_max;
-
+  document.querySelector("#icon").innerHTML = response.data.weather[0].icon;
   getCoordinates(response.data.coord);
 }
 function search(city) {
