@@ -17,36 +17,14 @@
   </head>
 
   <body>
-    <div
-      class="btn-group unitsBtn"
-      role="group"
-      aria-label="Basic radio toggle button group"
-    >
-      <input
-        type="radio"
-        class="btn-check"
-        name="btnradio"
-        id="btnradio1"
-        autocomplete="off"
-        checked
-      />
-      <label class="btn btn-outline-primary" for="btnradio1" id="celsius"
-        >˚C</label
-      >
-
-      <input
-        type="radio"
-        class="btn-check"
-        name="btnradio"
-        id="btnradio2"
-        autocomplete="off"
-      />
-      <label class="btn btn-outline-primary" id="fahrenheit" for="btnradio2"
-        >˚F</label
-      >
-    </div>
-
-    <div class="container search-container">
+    <div class="container full-container">
+      <div class="container btn-container">
+      <span class="unitsBtn" role="group">
+        <button type="button" class="btn btn-group" id="celsius">C˚</button>
+        <button type="button" class="btn btn-group" id="fahrenheit">F˚</button>
+      </span>
+      </div>
+      <section class="container search-container">
       <form class="search" id="search-form">
         <input
           class="form-control form-control-lg"
@@ -55,44 +33,39 @@
           id="city-search"
         />
       </form>
+      </section>
+      <section class="city-weather">
+        <h1 id="city"></h1>
+          <div class="container current-weather">
+              <span id="current-day"></span>
+              <span id="full-date"></span>
+             <div class="row">
+    <div class="col align-self-start current-date">
+              <img src="#" class="icon" id="icon" alt="weather icon">
+              <div class="temperature" 
+                    id="current-temperature"
+              ></div>
     </div>
+    <div class="col align-self-end weather-details">
+              <div class="description" id="temperature-description"></div>
+              <br>
+              <br>
+              <div id="max-min-temp"></div>
+              <div id="humidity"></div>
+              <div id="wind-speed"></div>
 
-    <h1 id="city"></h1>
-
-    <div class="card mb-3 current-temp-card">
-      <div class="row g-0">
-        <div class="col-md-4">
-          <img
-            src="#"
-            class="img-fluid rounded-start temp-image"
-            id="icon"
-            alt="sun"
-          />
-        </div>
-        <div class="col-md-8">
-          <div class="card-body today">
-            <span
-              class="card-title temperature"
-              id="current-temperature"
-            ></span>
-
-            <h5 id="current-day"></h5>
-            <div id="full-date"></div>
-            <div class="description" id="temperature-description"></div>
-            <br />
-            <div id="max-min-temp"></div>
-            <div id="humidity"></div>
-            <div id="wind-speed"></div>
+            </div>
           </div>
-        </div>
-      </div>
-    </br>
+<br>
+<br>
       <div class="weather-forecast" id="forecast-element"></div>
     </div>
 
+</section>
     <div class="gitHubLink">
-      <a href="https://github.com/LuciaEH/weather-app">Open source Code</a> by
-      Lucia Esquivel
+      <a href="https://github.com/LuciaEH/weather-app" target="_blank">Open source Code</a> by
+      <a href="https://www.linkedin.com/in/lucia-esquivel-heredia/" target="_blank">Lucia Esquivel</a>
+    </div>
     </div>
     <script src="script.js"></script>
   </body>

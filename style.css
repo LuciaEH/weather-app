@@ -1,84 +1,104 @@
-h1 {
-  font-size: 40pt;
-  margin-top: 60px;
-  margin-bottom: 0;
-  text-transform: capitalize;
-  text-align: center;
+body {
+  background-color: #e3f6f5;
+  color: #272343;
 }
-.container {
-  height: 100px;
+.full-container {
+  border: 1px solid #bae8e8;
+  border-radius: 20px;
+  padding: 20px;
+  margin: 0 auto;
+  margin-top: 30px;
+  width: 800px;
+  display: block;
+  background-color: #ffffff;
+  box-shadow: 6px 6px #bae8e8;
+}
+.unitsBtn{
+  margin-right: 100px;
+  margin-left: 500px;
+}
+.btn {
+color: #272343;
+text-align: center;
+}
+.btn:hover {
+  background-color: #272343;
+  color: #ffffff;
+}
+.search-container {
+  height: 50px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
-
 .search {
-  margin-top: 80px;
   position: relative;
   width: 540px;
+  padding-top: 20px;
 }
-.unitsBtn {
+h1 {
+  font-size: 40pt;
+  margin-top: 30px;
+  margin-bottom: 0;
+  text-transform: capitalize;
+  text-align: center;
+}
+.current-weather {
   position: relative;
-  margin-top: 10pt;
-  margin-left: 80%;
+  justify-content: center;
+  background-color: #ffffff;
+  margin-top: 30px;
 }
-.current-temp-card {
-  display: flex;
-  margin: 0 auto;
-  width: 540px;
-  padding-left: 0;
-  border: none;
+.current-date{
+  text-align: right;
 }
-.g-0 {
-  width: 600pt;
-  align-items: center;
-  padding-left: 30pt;
-}
-.temp-image {
-  width: 200px;
-  align-self: center;
-}
-.today {
-  margin-left: 50pt;
+.icon {
+  width: 160px;
 }
 .temperature {
-  font-size: 60pt;
+  font-size: 50pt;
+  line-height: 60px;
 }
-.description {
+.weather-details{
+  margin-left: 30px;
+  text-align: left;
+}
+.description{
   font-style: italic;
 }
-.row {
-  width: 600px;
+.next-days{
+  justify-content: center;
 }
-.col-sm-2 {
-  width: fit-content;
-  padding: 2pt;
-  border-color: none;
+.forecast-col{
+text-align: center;
+position: relative;
+margin-left: 0px;
+padding: 0px;
+width: 100px;
 }
-.next-days-card {
-  border-color: white;
-}
-.emojis {
-  text-align: center;
-}
-.next-days {
-  text-align: center;
-  margin: 0;
+.forecast-date{
+  font-weight: bolder;
 }
 .gitHubLink {
   text-align: center;
   font-size: 10pt;
+  margin-top: 20px;
+}
+a{
+  text-decoration: none;
+  color: #272343;
+}
+a:hover{
+  text-decoration: underline;
+  color: #bae8e8;
 }
 
-.weather-forecast {
-  display: grid;
-  text-align: center;
-}
-.forecast-icons {
-  text-align: center;
-  margin: 0 auto;
-  display: block;
-}
-.forecast-temp {
-  text-align: center;
-}
+
+
+
+
+
+
+
+
+

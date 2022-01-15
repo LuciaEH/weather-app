@@ -36,7 +36,7 @@ let days = [
 let day = days[now.getDay()];
 
 let actualDay = document.querySelector("#current-day");
-actualDay.innerHTML = `${day}`;
+actualDay.innerHTML = `${day},`;
 
 function formatDay(timestamp) {
   let date = new Date(timestamp * 1000);
@@ -50,9 +50,9 @@ function displayForecast(response) {
   let forecast = response.data.daily;
   let forecastElement = document.querySelector("#forecast-element");
 
-  let forecastHTML = `<div class="row">`;
+  let forecastHTML = `<div class="row next-days">`;
   forecast.forEach(function (forecastDay, index) {
-    if (index < 5) {
+    if (index > 0 && index < 6) {
       forecastHTML =
         forecastHTML +
         `
@@ -68,7 +68,7 @@ function displayForecast(response) {
       )}˚ / </span>
       <span class="forecast-temp-min">${Math.round(
         forecastDay.temp.min
-      )}˚</span>
+      )}˚C</span>
       </div>
       </div>`;
     }
@@ -107,7 +107,12 @@ function displayWeatherCondition(response) {
   celsiusTemperature = response.data.main.temp;
   minTemp = response.data.main.temp_min;
   maxTemp = response.data.main.temp_max;
-  document.querySelector("#icon").innerHTML = response.data.weather[0].icon;
+  document
+    .querySelector("#icon")
+    .setAttribute(
+      "src",
+      `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+    );
   getCoordinates(response.data.coord);
 }
 function search(city) {
